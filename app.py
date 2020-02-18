@@ -2,8 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, json
 from scrapper import WorldMeterScrapper as Scrapper
+from flasgger import Swagger
 
 app = Flask(__name__)
+swagger = Swagger(app)
 
 
 def get_soup():
@@ -14,7 +16,7 @@ def get_soup():
 
 @app.route('/')
 def main():
-    return "Welcome to CoronaVirus meter"
+    return "<h1>Welcome to CoronaVirus meter</h1><br>/basic</br>/table<br>/part"
 
 
 @app.route('/basic')
